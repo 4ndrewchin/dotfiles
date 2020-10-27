@@ -4,36 +4,55 @@ Plug 'morhetz/gruvbox'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
 
+"=====================================
 " configurations
+"=====================================
 colorscheme gruvbox
 set bg=dark
 
-set mouse=a " enable mouse
+" enable mouse
+set mouse=a
 
-syntax enable " enable syntax processing
+" enable syntax processing
+syntax enable
 
-set number " show line numbers
+" show line numbers
+set number
 
+" indentation
 set autoindent
+set smartindent
 set tabstop=4 " width of TAB
 " default same value as tabstop
 "set softtabstop=4 " affects what happens when TAB pressed, match shiftwidth
 set shiftwidth=4 " for automatic indentation
 set expandtab " tabs are spaces
 
+" whitespace markers
 set list listchars=eol:$,tab:>-,nbsp:.,trail:.,extends:>,precedes:<
 
-set cursorline " highlight current line
+" highlight current line
+set cursorline
 
-filetype indent on " load filetype-specific indent files
+" load filetype-specific indent files
+filetype indent on
 
-set wildmenu " visual autocomplete for command menu
+" visual autocomplete for command menu
+set wildmenu
 
-set showmatch " highlight matching [({
+" highlight matching brackets
+set showmatch
 
+" searching
 set incsearch " search as characters are entered
 set hlsearch " highlight search matches
 
+" automatically reload file if a file is changed externally
+set autoread
+
+" no file backups
+set nobackup
+set nowb
 set noswapfile
 
 " allow mac delete key to act as backspace
@@ -44,12 +63,8 @@ set laststatus=2
 
 " statusline
 set statusline=
-"set statusline +=%1*\ %n\ %*           "buffer number
-set statusline +=%5*%{&ff}%*            "file format
-set statusline +=%3*%y%*                "file type
-set statusline +=%4*\ %<%F%*            "full path
-set statusline +=%2*%m%*                "modified flag
-set statusline +=%1*%=%5l%*             "current line
-set statusline +=%2*/%L%*               "total lines
-set statusline +=%1*%4v\ %*             "virtual column number
-"set statusline +=%2*0x%04B\ %*         "character under cursor
+set statusline+=%F      "full path
+set statusline+=%=      "left/right separator
+set statusline+=%m      "modified flag
+set statusline+=%c,     "current column
+set statusline+=%l/%L   "current line/total lines
